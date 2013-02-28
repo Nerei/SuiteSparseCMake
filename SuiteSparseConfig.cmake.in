@@ -17,23 +17,23 @@
 # Extract the directory where *this* file has been installed (determined at cmake run-time)
 get_filename_component(THIS_SuiteSparse_CONFIG_PATH "${CMAKE_CURRENT_LIST_FILE}" PATH)
 
-SET(SuiteSparse_SOURCE_DIR "@THE_SuiteSparse_SOURCE_DIR@")
-SET(SuiteSparse_INCLUDE_DIRS "@SUITESPARSE_INCLUDE_DIRS@")
-SET(SuiteSparse_DIR "@THE_CMAKE_BINARY_DIR@")
-SET(SuiteSparse_LIBS_DIR "${SuiteSparse_DIR}/lib")
+set(SuiteSparse_SOURCE_DIR "@THE_SuiteSparse_SOURCE_DIR@")
+set(SuiteSparse_INCLUDE_DIRS "@SUITESPARSE_INCLUDE_DIRS@")
+set(SuiteSparse_DIR "@THE_CMAKE_BINARY_DIR@")
+set(SuiteSparse_LIBS_DIR "${SuiteSparse_DIR}/lib")
 
-INCLUDE_DIRECTORIES(${SuiteSparse_INCLUDE_DIRS})
+include_directories(${SuiteSparse_INCLUDE_DIRS})
 
 # ======================================================
 # Link directories to add to the user project:
 # ======================================================
-LINK_DIRECTORIES(${SuiteSparse_LIBS_DIR})
+link_directories(${SuiteSparse_LIBS_DIR})
 
 # ======================================================
 #   SuiteSparse list of libraries the user should link against:
 # ======================================================
-SET(SuiteSparse_LIBS "@SuiteSparse_LINKER_LIBS@")
+set(SuiteSparse_LIBS "@SuiteSparse_LINKER_LIBS@")
 
 if ("@BUILD_METIS@" STREQUAL "OFF")
-	ADD_DEFINITIONS(-DNPARTITION)
+	add_definitions(-DNPARTITION)
 endif ("@BUILD_METIS@" STREQUAL "OFF")
